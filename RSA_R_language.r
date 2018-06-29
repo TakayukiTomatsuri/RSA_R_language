@@ -23,8 +23,8 @@ extended_euclidean <- function(a, b){
 generate_keys <- function(p, q){
   # N(公開鍵)
   N <- as.integer(p*q)
-  # φ(p,q)
-  L <- as.integer((p-1)*(q-1))
+  # φ(p,q)じゃなくλ
+  L <- lcm.default((p-1), (q-1))
   
   # D*E = 1 (mod φ(p,q) )を満たすEを探し公開鍵とする(E=65537にしとくのが無難だけど)
   for (i in 2:L) {
